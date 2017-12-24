@@ -1,29 +1,100 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Agora Web Sample</title>
+<title>WebRtc HmSM-studio</title>
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
 <link rel="stylesheet" href="vendor/bootstrap.min.css">
+<link rel="stylesheet" href="vendor/ui.css">
+
 <script src="AgoraRTCSDK-2.0.0.js"></script>
 <script src="vendor/jquery.js"></script>
+    <style>
+    html{width: 100%;
+	height: 100%;
+	font-size:62.5%;
+    margin: 0;}  
+
+ body {font:normal 100% Arial,sans-serif;
+ 	font-size:14px; 
+ 	font-size:1.4rem;
+ 	background-color: #dec345;
+ 	color: black; }  
+
+ 	@media screen and (max-width: 980px) {
+
+	#pagewrap{
+		width: 94%;
+	}
+	#content{
+		width: 65%;
+	}
+	#sidebar{
+		width: 30%;
+	}
+
+}
+
+@media screen and (max-width:700px) {
+
+	#content {
+		width: auto;
+		float: none;
+	}
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+
+}
+
+@media screen and (max-width:480px) {
+
+	#header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	#sidebar {
+		display: none;
+	}
+
+}
+
+.select {
+	height:80%;
+	width: 100%;
+	background-color: #dec345;
+}
+
+.panel-body{
+	
+	width: 100%;
+	height: 20%;
+	position: relative;
+	background-color: #dec345;
+}
+    </style>
 </head>
 
 <body>
 <div id="div_device" class="panel panel-default">
 <div class="select">
-<label for="audioSource">Audio source: </label><select id="audioSource"></select>
+<label for="audioSource">音频音源: </label><select id="audioSource"></select>
 </div>
 <div class="select">
-<label for="videoSource">Video source: </label><select id="videoSource"></select>
+<label class="labels" for="videoSource">视频来源: </label><select id="videoSource"></select>
 </div>
 </div>
 
 <div id="div_join" class="panel panel-default">
 <div class="panel-body">
-Key: <input id="key" type="text" value="" size="36"></input>
-Channel: <input id="channel" type="text" value="1000" size="4"></input>
-Host: <input id="video" type="checkbox" checked></input>
-<button id="join" class="btn btn-primary" onclick="join()">Join</button>
-<button id="leave" class="btn btn-primary" onclick="leave()">Leave</button>
+Key: <input id="key" type="text" value="b0b34e8cc8f44638bb9e6476ba2b7379
+" size="36"></input>
+频道: <input id="channel" type="text" value="666" size="4"></input>
+上台: <input id="video" type="checkbox" checked></input>
+<button id="join" class="btn btn-primary" onclick="join()">加入</button>
+<button id="leave" class="btn btn-primary" onclick="leave()">离开</button>
 <button id="publish" class="btn btn-primary" onclick="publish()">Publish</button>
 <button id="unpublish" class="btn btn-primary" onclick="unpublish()">Unpublish</button>
 </div>
@@ -45,7 +116,7 @@ Host: <input id="video" type="checkbox" checked></input>
     </div-->
 
 <div id="video" style="margin:0 auto;">
-    <div id="agora_local" style="float:right;width:210px;height:147px;display:inline-block;"></div>
+    <div id="agora_local" style="float:left;width:100%;height:50%;display:inline-block;"></div>
 </div>
 
 <script language="javascript">
